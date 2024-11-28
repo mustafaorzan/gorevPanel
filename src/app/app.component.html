@@ -43,7 +43,6 @@
       <div class="input-add-button">
         <button class="btn btn-outline-primary p-3" (click)="addItem(gorevTask.value,gorevDesc.value,gorevDue.value,gorevEnd.value);
           gorevTask.value=''; gorevDesc.value=''; gorevDue.value='29.11.2024';gorevEnd.value='29.11.2024';">EKLE</button>
-        <button class="btn btn-outline-danger p-3">SİL</button>
         <button class="btn btn-outline-info p-3">GÜNCELLE</button>
       </div>
       
@@ -88,6 +87,9 @@
           <td [ngSwitch]="item.status">
             <span *ngSwitchCase="true">Evet</span>
             <span *ngSwitchCase="false">Hayır</span>
+          </td>
+          <td>
+            <button class="btn btn-outline-danger">SİL</button>
           </td>
         </tr>
       </tbody>
