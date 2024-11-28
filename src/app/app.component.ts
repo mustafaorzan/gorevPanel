@@ -14,6 +14,7 @@ export class AppComponent {
   model = new GorevModel();
   isDisplay = false;
   id: number = 4;
+  errorMessage: string = '';
 
   getItems(){
     if(this.isDisplay){
@@ -27,7 +28,9 @@ export class AppComponent {
       
       this.model.items.push(new GorevItem(this.id,val_task, val_desc,false,val_due,val_end));
       this.id++;
-    } // else kısmını da düşün
+    } else{
+      this.errorMessage = 'Lütfen boş alan bırakmayınız ve tarihleri giriniz!';
+    }
   }
 
 }

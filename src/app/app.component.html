@@ -49,6 +49,10 @@
       
     </div>
 
+    <div *ngIf="errorMessage" class="alert alert-danger">
+      {{ errorMessage }}
+    </div>
+
 
     <!-- Checkbox ( Tüm Görevleri Göster (Biten + Devam eden) )  --> 
     <div class="custom-control custom-checkbox p-3">
