@@ -33,4 +33,10 @@ export class AppComponent {
     }
   }
 
+  deleteItem(index: number){
+    if (confirm('Bu görevi silmek istediğinizden emin misiniz?')) {
+      this.model.items.splice(index, 1); // 2 den fazla öge sildirmiyor. Çözemedim.
+    }
+  }
+
 }
