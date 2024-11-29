@@ -68,8 +68,18 @@
           <th>Görev</th>
           <th>Açıklama</th>
           <th>Durum</th>
-          <th>Due Date</th>
-          <th>End Date</th>
+          <th (click)="sortBy('dueDate')" style="cursor: pointer;">
+            Due Date
+            <span *ngIf="sortColumn === 'dueDate'">
+              <i class="fa" [ngClass]="{'fa-arrow-up': sortDirection === 'asc', 'fa-arrow-down': sortDirection === 'desc'}"></i>
+            </span>
+          </th>
+          <th (click)="sortBy('endDate')" style="cursor: pointer;">
+            End Date
+            <span *ngIf="sortColumn === 'endDate'">
+              <i class="fa" [ngClass]="{'fa-arrow-up': sortDirection === 'asc', 'fa-arrow-down': sortDirection === 'desc'}"></i>
+            </span>
+          </th>
           <th>Bitti mi?</th>
         </tr>
       </thead>

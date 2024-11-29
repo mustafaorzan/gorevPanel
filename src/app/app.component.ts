@@ -15,6 +15,8 @@ export class AppComponent {
   isDisplay = false;
   id: number = 4;
   errorMessage: string = '';
+  sortColumn: string = '';
+  sortDirection: 'asc' | 'desc' = 'asc';
 
   getItems(){
     if(this.isDisplay){
@@ -38,5 +40,31 @@ export class AppComponent {
       this.model.items.splice(index, 1); // 2 den fazla öge sildirmiyor. Çözemedim.
     }
   }
+
+  sortBy(column: keyof GorevItem) {
+    if (this.sortColumn === column) {
+      // Aynı sütuna tekrar tıklanırsa yönü tersine çevir
+      this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
+    } else {
+      this.sortColumn = column;
+      this.sortDirection = 'asc'; // İlk başta artan sıraya göre sıralar
+    }
+
+    // Veri sıralaması (String olarak karşılaştırma yapıyoruz)
+    this.model.items.sort((a, b) => {
+      const valueA = a[column].toString();
+      const valueB = b[column].toString();
+
+      if (valueA < valueB) {
+        return this.sortDirection === 'asc' ? -1 : 1;
+      }
+      if (valueA > valueB) {
+        return this.sortDirection === 'asc' ? 1 : -1;
+      }
+      return 0;
+    });
+  }
+
+  
 
 }
