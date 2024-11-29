@@ -43,7 +43,7 @@
       <div class="input-add-button">
         <button class="btn btn-outline-primary p-3" (click)="addItem(gorevTask.value,gorevDesc.value,gorevDue.value,gorevEnd.value);
           gorevTask.value=''; gorevDesc.value=''; gorevDue.value='29.11.2024';gorevEnd.value='29.11.2024';">EKLE</button>
-        <button class="btn btn-outline-info p-3">GÜNCELLE</button>
+        
       </div>
       
     </div>
@@ -66,7 +66,9 @@
         <tr>
           <th>ID</th>
           <th>Görev</th>
+          <th></th>
           <th>Açıklama</th>
+          <th></th>
           <th>Durum</th>
           <th (click)="sortBy('dueDate')" style="cursor: pointer;">
             Due Date
@@ -88,7 +90,9 @@
         <tr *ngFor="let item of getItems(); let i= index">
           <td>{{item.id}}</td>
           <td>{{item.task}}</td>
+          <td><button class="btn btn-outline-info">Edit</button></td>
           <td>{{item.description}}</td>
+          <td><button class="btn btn-outline-info">Edit</button></td>
           <td>
             <input type="checkbox" [(ngModel)]="item.status">
           </td>
